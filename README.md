@@ -314,8 +314,11 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
         invokeTargetId : "replace_with_invoke_target_id",
         appId: "replace_with_app_id",
         ppgUrl:"replace_with_ppg_url", //remove for BES pushes
-        ecb: "pushNotificationHandler"
-    }
+        ecb: "pushNotificationHandler",
+        simChangeCallback: replace_with_simChange_callback,
+        pushTransportReadyCallback: replace_with_pushTransportReady_callback,
+        launchApplicationOnPush: true
+    });
 } else {
     pushNotification.register(
     tokenHandler,
@@ -337,7 +340,7 @@ On success, you will get a call to tokenHandler (iOS), onNotification (Android a
 
 - **Android**: If you have not already done so, you'll need to set up a Google API project, to generate your senderID. [Follow these steps](http://developer.android.com/guide/google/gcm/gs.html) to do so. This is described more fully in the **Testing** section below. In this example, be sure and substitute your own senderID. Get your senderID by signing into to your [google dashboard](https://code.google.com/apis/console/). The senderID is found at *Overview->Dashboard->Project Number*.
 
-- **BlackBerry10**: "ecb" MUST be provided to get notified of incoming push notifications. Also note, if doing a public consumer (BIS) push, you need to manually add the _sys_use_consumer_push permission to config.xml. `<rim:permit system="true">_sys_use_consumer_push</rim:permit>`. In order to receieve notifications, an invoke target must be [setup](http://developer.blackberry.com/html5/documentation/v2_1/rim_invoke-target.html) for push.
+- **BlackBerry10**: "ecb" MUST be provided to get notified of incoming push notifications. Also note, if doing a public consumer (BIS) push, you need to manually add the _sys_use_consumer_push permission to config.xml. `<rim:permit system="true">_sys_use_consumer_push</rim:permit>`. In order to receieve notifications, an invoke target must be [setup](http://developer.blackberry.com/html5/documentation/v2_1/rim_invoke-target.html) for push. See [BlackBerry Push Service](http://developer.blackberry.com/html5/apis/v2_1/blackberry.push.pushservice.html) for additional information about blackberry push options.
 
 
 
