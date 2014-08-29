@@ -122,7 +122,7 @@ module.exports = {
         var ops = args[0],
             simChangeCallback = ops.simChangeCallback,
             pushTransportReadyCallback = ops.pushTransportReadyCallback,
-            launchApplicationOnPush = ops.launchApplicationOnPush;
+            launchApplicationOnPush = ops.launchApplicationOnPush !== undefined ? ops.launchApplicationOnPush : true;
 
             ecb = ops.ecb;
 
